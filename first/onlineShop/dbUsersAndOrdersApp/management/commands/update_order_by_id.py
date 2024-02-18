@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 from dbUsersAndOrdersApp.models import Product, Order
-from random import choice
+from random import choice, randint
 
 class Command(BaseCommand):
     help = "Update order."
@@ -17,6 +17,7 @@ class Command(BaseCommand):
                 rand_product = choice(products)
                 order.products.add(rand_product)
                 order.total_price += rand_product.price
+                order.date_ordered = f"2023-{randint(1, 12)}-{randint(1, 28)}"
             self.stdout.write(f'Заказ {pk} обновлён')
             order.save()
         else:

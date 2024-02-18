@@ -20,8 +20,6 @@ class Command(BaseCommand):
                     rand_product = choice(products)
                     order.products.add(rand_product)
                     order.total_price += rand_product.price
-                order.save()
                 self.stdout.write(f'Заказ {order.date_ordered} создан')
         else:
             self.stdout.write(f'Клиента не существует')
-        
