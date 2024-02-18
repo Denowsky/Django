@@ -15,7 +15,6 @@ class Command(BaseCommand):
         print(client.name)
         if client is not None:
                 order = Order(client = client)
-                order.save()
                 for _ in range(3):
                     rand_product = choice(products)
                     order.products.add(rand_product)
