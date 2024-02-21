@@ -1,9 +1,0 @@
-{% extends "dbUsersAndOrdersApp/index.html" %}
-
-{% block content %}
-<h1>Клиент:{{ client }}</h1>
-<h2>Посмотреть заказы за:</h2>
-<a href="/orders/7/{{ pk }}">За последнюю неделю</a>
-<a href="/orders/30/{{ pk }}">За последний месяц</a>
-<a href="/orders/365/{{ pk }}">За последний год</a>
-{% endblock content %}

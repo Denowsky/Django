@@ -1,0 +1,17 @@
+{% extends "dbUsersAndOrdersApp/index.html" %}
+
+{% block content %}
+    <h1>Заказы {{ client }}</h1>
+        {% for key, value in orders.items %}
+        <h3>За последние {{ key }} дней</h3>
+        <ul>
+            {% for order, products in value.items %}
+            <h4>Заказ {{ order }}</h4>
+                {% for product in products %}
+                <li>{{ product }}</li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+        <hr>
+        {% endfor %}
+    {% endblock content %}
