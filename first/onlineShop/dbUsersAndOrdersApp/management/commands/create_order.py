@@ -23,4 +23,3 @@ class Command(BaseCommand):
                 self.stdout.write(f'Заказ {order.date_ordered} создан')
         else:
             self.stdout.write(f'Клиента не существует')
-        

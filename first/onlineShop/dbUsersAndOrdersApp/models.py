@@ -15,6 +15,9 @@ class Product(models.Model):
     count = models.IntegerField()
     add_date = models.DateField(auto_now=True)
 
+    def __str__(self) -> str:
+        return f'Товар: {self.name}, цена: {self.price}'
+
 class Order(models.Model):
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
     products = models.ManyToManyField(Product)

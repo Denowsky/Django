@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    {% block content %}
+    <h1>Привет, введите ID клиента</h1>
+    <form action="{% url 'client'%}" method="post">
+        {% csrf_token %}
+        <label for="client_id">ID: </label>
+        <input type="number" name="client_id">
+        <input type="submit" value="OK">
+    </form>
+    {% endblock content %}
+</body>
+
+</html>
