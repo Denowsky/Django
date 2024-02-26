@@ -14,6 +14,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=8, decimal_places = 2)
     count = models.IntegerField()
     add_date = models.DateField(auto_now=True)
+    image = models.ImageField(default='default.jpg')
 
     def __str__(self) -> str:
         return f'Товар: {self.name}, цена: {self.price}'
