@@ -8,6 +8,9 @@ class Client(models.Model):
     adress = models.TextField()
     reg_date = models.DateField(auto_now=True)
 
+    def __str__(self) -> str:
+        return f'{self.name}'
+
 class Product(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
@@ -24,3 +27,12 @@ class Order(models.Model):
     products = models.ManyToManyField(Product)
     total_price = models.DecimalField(max_digits=12, decimal_places=2, default=0)
     date_ordered = models.DateField(auto_now_add=True)
+
+    def __str__(self) -> str:
+        return f'Заказ от {self.date_ordered}'
+    
+    def save(self, *args, **kwargs) -> None:
+        super(Order, self).save(*args, **kwargs)
+        total_price = sum(product.price for product in self.products.all())
+        self.total_price = total_price
+        super(Order, self).save(*args, **kwargs)
