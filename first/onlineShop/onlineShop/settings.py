@@ -31,7 +31,7 @@ if os.environ.get("DEBUG") == "False":
     DEBUG = False
 else:
     DEBUG = True
-    
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 SESSION_COOKIE_SECURE = True
@@ -99,7 +99,7 @@ DATABASES = {
         'PASSWORD': os.getenv('MYSQL_PASSWORD'),
         'HOST': os.getenv('MYSQL_HOST'),
         'OPTIONS': {
-            'init_command': 'SET NAMES "utf8mb4;SET sql_mode = "STRICT_TRANS_TABLES"',
+            'init_command': 'SET NAMES "utf8mb4";SET sql_mode = "STRICT_TRANS_TABLES"',
             'charset': 'utf8mb4',
         }
     }
